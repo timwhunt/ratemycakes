@@ -1,0 +1,20 @@
+.cake-wrap {
+    margin: 0 0 10px 0;
+}
+
+.cake-list {
+    height: 300px;
+    overflow: auto;
+}
+
+.cake-wrap img {
+    width: 175px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.rating-form {
+    display: inline-block;
+    width: 400px;
+    margin-left: 10px;
+}

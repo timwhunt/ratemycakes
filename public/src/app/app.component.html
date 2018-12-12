@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+    <div class="col"><h1>Rate My Cakes</h1></div>
+</div>
+<div class="row">
+    <div class="col col-sm-4">
+        <h4>Submit a cake to be rated</h4>
+        <form>
+            <div class="form-group">
+                <label for="bakerName">Baker name</label>
+                <input type="text" class="form-control" id="bakerName" name="bakerName" [(ngModel)]="newCake.bakerName">
+            </div>
+            <div class="form-group">
+                <label for="imageURL">Image URL</label>
+                <input type="text" class="form-control" id="imageURL" name="imageURL" [(ngModel)]="newCake.imageURL">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="submitCake()">Submit</button>
+        </form>
+    </div>
+    <div class="col col-sm-8">
+        <h4>Current cakes</h4>
+        <div class="cake-list">
+            <div *ngFor="let cake of cakes">
+                <div class="cake-wrap">
+                    <img src="{{cake.imageURL}}" alt="cake" (click)="displayCake(cake)">
+                    <form class="rating-form">
+                        <div class="form-group">
+                            <select class="form-control" id="rating" [(ngModel)]="newRatings[cake._id].rating" name="rating">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="comment" rows="2" [(ngModel)]="newRatings[cake._id].comment" name="comment"></textarea>
+                        </div>
+                        <button type="submit" class="btn secondary btn-sm" (click)="submitRating(cake._id)">Rate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col"><app-cake-display *ngIf="theDisplayCake" [cakeToShow]="theDisplayCake"></app-cake-display></div>
+</div>
+

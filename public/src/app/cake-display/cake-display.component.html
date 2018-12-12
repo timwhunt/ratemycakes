@@ -1,0 +1,11 @@
+<hr>
+<p><span class="font-weight-bold">Baker: </span>{{cakeToShow.bakerName}}</p>
+<img src="{{cakeToShow.imageURL}}" alt="cake">
+<div class="cake-details">
+    <p><span class="font-weight-bold">Average Rating: </span>{{cakeToShow.avgRating}}</p>
+    <div *ngFor="let rat of cakeToShow.ratings" class="rating-wrap">
+        <p class="rating">{{rat.rating}} Stars</p>
+        <p class="comment">"{{rat.comment}}"</p>
+    </div>
+</div>
+

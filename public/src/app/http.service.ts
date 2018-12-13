@@ -9,14 +9,14 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   getCakes = () => {
-    return this._http.get('http://localhost:8000/cakes');
+    return this._http.get('/cakes');
   };
 
   newCake = (cake) => {
-      return this._http.post('http://localhost:8000/cakes', cake);
+      return this._http.post('/cakes', cake);
   }
 
   newRating = (cakeId, rating) => {
-      return this._http.post('http://localhost:8000/cakes/' + cakeId + '/ratings', rating);
+      return this._http.post('/cakes/' + cakeId + '/ratings', rating);
   }
 }
